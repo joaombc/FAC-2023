@@ -1,0 +1,36 @@
+#include <stdio.h>
+
+# int main(void){
+#     int n,m;
+
+#     scanf("%d", &n);
+#     scanf("%d", &m);
+
+#     int resultado;
+
+#     resultado = n-m;
+
+#     printf("%d\n", resultado);
+
+# }
+
+
+.text
+    main:
+    li $v0, 5
+    syscall
+    move $t0, $v0
+    li $v0, 5
+    syscall
+    move $t1, $v0
+    sub $s0, $t0, $t1
+
+    li $v0, 1
+    move $a0, $s0
+    syscall
+    li $v0, 10
+    syscall
+    
+
+    
+    
