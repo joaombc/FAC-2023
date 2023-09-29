@@ -24,3 +24,5 @@ main:
 
     sw $t3, 0 ($t0)
 
+    li $v0, 10
+    syscall
