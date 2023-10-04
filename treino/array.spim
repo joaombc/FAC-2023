@@ -1,0 +1,12 @@
+        .text
+main:
+        li $t0, 42              #valor que ira substituir
+
+        addi $t1, $s0, 28       #a 8a posição está a 7*4 bytes do inicio
+
+        # armazenar $t0, em a[8]
+
+        sw $t0, 0($t1)
+
+        li $v0, 10
+        syscall
