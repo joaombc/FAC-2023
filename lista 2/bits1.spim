@@ -1,0 +1,12 @@
+contaBits:
+    # Inicialize o contador de bits 1 em $v0 com zero
+    li $v0, 0
+
+count_loop:
+    andi $t0, $a0, 1     # Use uma máscara para verificar o bit menos significativo
+    add $v0, $v0, $t0    # Adicione o bit atual ao contador em $v0
+    srl $a0, $a0, 1      # Shift right lógico para verificar o próximo bit
+    bne $a0, $zero, count_loop # Se $a0 não for zero, continue a contagem
+
+    jr $ra               # Retorne ao chamador
+
