@@ -1,0 +1,43 @@
+            .data
+
+input:      .space 5
+linha:      .asciiz "\n"
+
+            .text
+main:
+
+            li $v0, 5
+            syscall
+            move $t0, $v0
+
+loop:
+            beq $t0, $zero, end_loop
+            addi $t0, $t0, -1
+
+            la $a0, input
+            li $v0, 8
+            li $a1, 5
+            syscall
+
+            lb $t1, 0($a0)
+            lb $t2, 2($a0)
+
+            beq $t1, $t2, um
+            li $a0, 2
+            j print
+
+um: 
+            li $a0, 1
+
+print:
+            li $v0, 1
+            syscall
+
+            li $v0, 4
+            la $a0, linha
+            syscall
+            j loop
+
+end_loop:
+            li $v0, 10
+            syscall
